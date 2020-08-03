@@ -4,10 +4,13 @@
   "description": "",
   "main": "api.js",
   "dependencies": {
-    "nodemailer": "^6.4.10"
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.10",
+    "nodemon": "^2.0.4"
   },
   "devDependencies": {},
   "scripts": {
+    "start": "nodemon api.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,5 +22,16 @@
   "bugs": {
     "url": "https://github.com/dimerize/practice-nodejs/issues"
   },
-  "homepage": "https://github.com/dimerize/practice-nodejs#readme"
+  "homepage": "https://github.com/dimerize/practice-nodejs#readme",
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      "node_modules/**/node_modules"
+    ],
+    "delay": "2500",
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": 4000
+    }
+  }
 }
