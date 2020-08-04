@@ -1,15 +1,16 @@
 const express = require('express');
 
 const app = express();
-// const bookRouter = express.Router();
+const bookRouter = express.Router();
 const port = process.env.PORT || 3000;
 
-/* bookRouter.route('/books')
+bookRouter.route('/books')
     .get((req, res) => {
         const response = { hello: 'API message'};
         res.json(response);
     });
-*/
+
+app.use('/api', bookRouter);
 
 app.get('/', (req, res) => {
     res.send('test run');
