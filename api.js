@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 
 bookRouter.route('/books')
     .get((req, res) => {
-        const response = { hello: 'API message'};
+        const response = { hello: ' message'};
         res.json(response);
     });
 
