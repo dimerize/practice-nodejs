@@ -11,6 +11,7 @@ function routes(Book) {
             return res.status(201).json(book);
         })
         .get((req, res) => {
+            res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
             const query = {};
             if(req.query.genre) {
                 query.genre = req.query.genre;
