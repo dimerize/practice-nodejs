@@ -1,8 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+/* const cors = require('cors');
+const corsConfig = {
+    origin: true,
+    credentials: true,
+  };
+*/
 
 const app = express();
+
+// app.use(cors(corsConfig));
+
 const db = mongoose.connect('mongodb://localhost/bookAPI');
 const port = process.env.PORT || 3000;
 const Book = require('./models/bookModel');

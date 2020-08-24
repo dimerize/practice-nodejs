@@ -26,6 +26,7 @@ function routes(Book) {
 
     bookRouter.route('/books/:bookId')
         .get((req, res) => {
+            res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
             Book.findById(req.params.bookId, (err, book) => {
                 if(err) {
                     return res.send(err);
@@ -34,12 +35,15 @@ function routes(Book) {
             });
         })
         .put((req, res) => {
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
             Book.findById(req.params.bookId, (err, book) => {
                 if (err) {
                     return res.send(err);
                 }
                 book.title = req.body.title;
                 book.author = req.body.author;
+                book.schedule = req.book.schedule;
                 book.genre = req.body.genre;
                 book.read = req.body.read;
 
